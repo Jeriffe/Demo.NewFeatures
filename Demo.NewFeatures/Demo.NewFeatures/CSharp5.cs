@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Demo.NewFeatures
 {
-    class Program
+    /*Async Feature (Asynchronous Methods)
+    Caller Information (Caller info attributes)
+    */
+    public class CSharp5
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }

@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.NewFeatures
 {
-    class Program
+    public class CSharp4
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
