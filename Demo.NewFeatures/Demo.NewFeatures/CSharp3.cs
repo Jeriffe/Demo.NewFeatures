@@ -11,5 +11,13 @@ namespace Demo.NewFeatures
         //Auto properties
         public int Age { get; set; }
 
+        public CSharp3()
+        {
+
+        }
+
+        public void ShowNewFeatures()
+        {
+        }
     }
 }

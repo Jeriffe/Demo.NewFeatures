@@ -11,6 +11,8 @@ namespace Demo.NewFeatures
         static void Main(string[] args)
         {
 
+            Console.ReadLine();
         }
+
     }
 }

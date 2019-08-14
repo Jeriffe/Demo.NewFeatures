@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Demo.NewFeatures
 {
-    public class CSharp4
+    public class CSharp2
     {
-        public CSharp4()
+        public CSharp2()
         {
 
         }
+
 
         public void ShowNewFeatures()
         {
