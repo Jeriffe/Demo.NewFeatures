@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE8385CB-A934-4D97-BC3E-B009175F75FE}</ProjectGuid>
+    <ProjectGuid>{35912890-DC92-487F-9F82-E00880316DA8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo.NewFeatures</RootNamespace>
-    <AssemblyName>Demo.NewFeatures</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Demo.Feature_CSharp7</RootNamespace>
+    <AssemblyName>Demo.Feature_CSharp7</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -44,32 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharp2.cs" />
-    <Compile Include="CSharp3.cs" />
-    <Compile Include="CSharp4.cs" />
-    <Compile Include="CSharp5.cs" />
-    <Compile Include="CSharp6.cs" />
+    <Compile Include="CSharp7.cs" />
+    <Compile Include="CSharp7_1.cs" />
+    <Compile Include="CSharp7_2.cs" />
     <Compile Include="ICSharp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UtilityHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="0_Docs\C#4.0.pdf" />
-    <None Include="0_Docs\C#5.0.pdf" />
-    <None Include="0_Docs\C#6.0.pdf" />
+    <None Include="0_Doc\C#7.pdf" />
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="0_Docs\C#6.0MindMapping.png" />
-    <Content Include="0_Docs\NETVersions.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

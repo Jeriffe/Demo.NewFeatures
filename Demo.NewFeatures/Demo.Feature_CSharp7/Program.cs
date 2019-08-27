@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Demo.NewFeatures
+namespace Demo.CSharp7
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<ICSharp> sharps = new List<ICSharp> { new CSharp2(), new CSharp3(), new CSharp4(), new CSharp5(), new CSharp6(), };
+            List<ICSharp> sharps = new List<ICSharp> { new CSharp7(), };
 
             sharps.ForEach(c => c.ShowNewFeatures());
 
             Console.ReadLine();
+
         }
 
     }

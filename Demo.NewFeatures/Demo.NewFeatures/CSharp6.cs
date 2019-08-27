@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-//6. Use Static --Import
+//5. Use Static --Import
 using static System.IO.File;
 
 namespace Demo.NewFeatures
 {
-    public class CSharp6
+    public class CSharp6 : ICSharp
     {
+        private static Logger logger;
+
         //1. Auto-property initializers 自动属性默认初始化
         public string FirstName { get; set; } = "Jeriffe";
 
@@ -20,6 +24,28 @@ namespace Demo.NewFeatures
             FirstName = "Summer";
             Age = 31;
         }
+
+
+        public void ShowNewFeatures()
+        {
+            //Auto property initializers
+            //Read only auto properties
+
+            ExpressionBodiedMembers();
+
+            StringInterpolation();
+
+            UseStatic();
+
+            NullConditionalOpertaor();
+
+            NameofExpression();
+
+            IndexInitializer();
+
+            AwaitInCatchFinallyBlock();
+        }
+
 
         //3. Expression bodied members
         //3.1 表达式为主体的函数
@@ -34,22 +60,7 @@ namespace Demo.NewFeatures
             return $"{FirstName} {LastName}";
         }
 
-        //5. Null-conditional operators Null条件运算符
-        private string NullConditionalOpertaor()
-        {
-            var obj = new CSharp6();
-
-            /* 
-            var obj = new CSharp5();
-            if (obj != null)
-            {
-                string name = obj.Name;
-            }
-            */
-            return $"{obj?.FirstName} {obj?.LastName}";
-        }
-
-        //6. Use Static 静态类导入
+        //5. Use Static 静态类导入
         void UseStatic()
         {
             if (Exists(@"C:\usestatic.txt"))
@@ -58,7 +69,27 @@ namespace Demo.NewFeatures
             }
         }
 
+        //6. Null-conditional operators Null条件运算符
+        private string NullConditionalOpertaor()
+        {
+            var obj = new CSharp6();
+
+            //old way
+            if (obj != null)
+            {
+                string name = obj.FirstName;
+            }
+
+            //new way
+            return $"{obj?.FirstName} {obj?.LastName}";
+        }
+
         //7. nameof表达式
+        /// <summary>
+        /// The nameof expression evaluates to the name of a symbol. 
+        /// It's a great way to get tools working 
+        /// whenever you need the name of a variable, a property, or a member field
+        /// </summary>
         private void NameofExpression()
         {
             string name = "Jeriffe";
@@ -91,8 +122,41 @@ namespace Demo.NewFeatures
             }
         }
 
-        public void ShowNewFeatures()
+        //9.await in catch finally block
+        public async Task<string> AwaitInCatchFinallyBlock()
         {
+            await logger.Log("Enter the " + nameof(AwaitInCatchFinallyBlock));
+
+            var client = new System.Net.Http.HttpClient();
+            var streamTask = client.GetStringAsync("https://localHost:10000");
+            try
+            {
+                var responseText = await streamTask;
+                return responseText;
+            }
+            catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301"))
+            {
+                await logger.Log("Recovered from redirect", e);
+                return "Site Moved";
+            }
+            finally
+            {
+                await logger.Exit();
+                client.Dispose();
+            }
+        }
+    }
+
+    internal class Logger
+    {
+        public Task Exit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Log(string v, HttpRequestException e = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }
