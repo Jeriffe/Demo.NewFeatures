@@ -99,6 +99,9 @@ namespace Demo.NewFeatures
             nop.Process_New("foo", true, myArrayList); // valid
             nop.Process_New("foo", moreData: myArrayList); // valid, ignoreWS omitted
             nop.Process_New("foo", moreData: myArrayList, ignoreWS: false); // valid, but silly
+
+            //Named argument specifications must appear after all fixed arguments have been specified. 
+           // nop.Process_New("foo", ignoreWS: false, myArrayList); // valid, but silly
         }
     }
 

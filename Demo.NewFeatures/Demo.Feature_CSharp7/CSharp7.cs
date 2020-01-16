@@ -18,14 +18,18 @@ namespace Demo.CSharp7
             OutVariables();
 
             TuplesEnhancement();
+
             //解构
             Discards();
+
             //模式匹配
             PatternMatching();
+
             //局部函数
             LocalFunctions();
 
             ThrowExpressions();
+
             //局部变量和引用返回
             Reflocalsandreturns();
 
@@ -46,18 +50,28 @@ namespace Demo.CSharp7
             int b = 0xAB_CD_EF;
             int c = 123456;
             int d = 0xABCDEF;
+
             Console.WriteLine(a == c);
             Console.WriteLine(b == d);
         }
 
         private void GeneralizedAsyncReturnTypes()
         {
-            //ValueTask type 
-            //async ValueTask<int> Func()
-            //{
-            //    await Task.Delay(100);
-            //    return 5;
-            //}
+            async Task<int> CalculateSum(int a, int b)
+            {
+                // if both a and b are 0 the function will still create a Task
+                //which in this case is an unnecessary operation
+                if (a == 0 && b == 0) { return 0; }
+
+                return await Task.Run(() => a + b);
+            }
+
+            async ValueTask<int> CalculateSumSimple(int a, int b)
+            {
+                if (a == 0 && b == 0) { return 0; }
+
+                return await Task.Run(() => a + b);
+            }
         }
 
         private void MoreExpressionBodiedMembers()
@@ -114,22 +128,52 @@ namespace Demo.CSharp7
         private static void PatternMatching()
         {
             object a = 1;
+            //1.is表达式
+            //扩展的is操作符是as和if的组合： 先做as转换，再做if判断
             if (a is int c) //这里,判断为int后就直接赋值给c
             {
                 int d = c + 10;
 
                 Console.WriteLine(d);
             }
+
+            //2.switch
+            //Starting with C# 7.0, the match expression can be any non-null expression.
+            //patterns可以用在case子句
+            //case 子句可以附加条件判断式
+            void SwitchPro(object shape)
+            {
+                switch (shape)
+                {
+                    case Circle circle:
+                        Console.WriteLine($"circle with radius {circle.Radius}");
+                        break;
+                    case Rectangle s when (s.Length == s.Height):
+                        Console.WriteLine($"{s.Length} x {s.Height} square");
+                        break;
+                    case Rectangle r:
+                        Console.WriteLine($"{r.Length} x {r.Height} rectangle");
+                        break;
+                    default:
+                        Console.WriteLine("<unknown shape>");
+                        break;
+                    case null:
+                        throw new ArgumentNullException(nameof(shape));
+                }
+            }
+
         }
 
 
-        private void Discards()
+        private (string a, int b) Discards()
         {
             //解构可以应用于任何.NET类型， 前提是需要有Deconstruct方法成员(实例或者扩展)
             var (Name, Age) = new Discard_A { Name = "Joe", Age = 32 };
             Console.WriteLine($"name: {Name}, age: {Age}");
 
             var (_, _, _, pop1, _, pop2) = Deconstruct_QueryCityDataForYears("New York City", 1960, 2010);
+
+            return (Name, Age);
         }
 
         private static (string, double, int, int, int, int) Deconstruct_QueryCityDataForYears(string name, int year1, int year2)
@@ -163,9 +207,15 @@ namespace Demo.CSharp7
             var tuple2 = ValueTuple.Create(1, 2);
             var tuple3 = new ValueTuple<int, int>(1, 2);
 
+
             //编译后的元组字段名称还是Item1,Item2.......，所以只是语义上的命名
             (int One, int Two) named_tuple = (1, 2);
+            (int T1, int T2) named_tuple2 = ValueTuple.Create(1, 2);
+            (int S1, int S2) named_tuple3 = new ValueTuple<int, int>(1, 2);
+
             Console.WriteLine($"Named Tuple{nameof(named_tuple)} names: { named_tuple.One}, {named_tuple.Two}");
+            Console.WriteLine($"Named Tuple{nameof(named_tuple2)} names: { named_tuple2.T1}, {named_tuple2.T2}");
+            Console.WriteLine($"Named Tuple{nameof(named_tuple3)} names: { named_tuple3.S1}, {named_tuple3.S2}");
         }
 
         private void OutVariables()
@@ -193,6 +243,18 @@ namespace Demo.CSharp7
 
         }
     }
+
+    internal class Rectangle
+    {
+        internal object Length;
+        internal object Height;
+    }
+
+    internal class Circle
+    {
+        public object Radius { get; internal set; }
+    }
+
     class MoreExpressionBodyMember_A
     {
         private string label;
