@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Demo.Infrastructure;
 
 //5. Use Static --Import
 using static System.IO.File;
@@ -25,25 +26,54 @@ namespace Demo.NewFeatures
             Age = 31;
         }
 
-
         public void ShowNewFeatures()
         {
-            //Auto property initializers
-            //Read only auto properties
+            Console.WriteLine("**************begin C#6 new features********************");
+
+            Console.WriteLine();
+            Console.WriteLine("1. Auto-property initializers 自动属性默认初始化");
+            Console.WriteLine("public string FirstName { get; set; } = \"Jeriffe\";");
+
+            Console.WriteLine();
+            Console.WriteLine("2. Getter-only auto-properties 自动只读属性默认初始化");
+            Console.WriteLine("public int Age { get; } = 32;");
+
+            Console.WriteLine();
+            Console.WriteLine("3. Expression bodied members");
+            Console.WriteLine("3.1 表达式为主体的函数:");
+            Console.WriteLine("public string ExpressionBodiedMembers() => string.Format(\"Welcome { 0}\", FirstName);");
+            Console.WriteLine("3.2 表达式为主体的属性(赋值):");
+            Console.WriteLine(" public string Name2 => \"hello world\";");
 
             ExpressionBodiedMembers();
 
+            Console.WriteLine();
+            Console.WriteLine("4. String interpolation 字符串格式化:");
+            Console.WriteLine("$" + "{ FirstName} { LastName}");
+
             StringInterpolation();
+
+            Console.WriteLine();
+            Console.WriteLine("5. Use Static 静态类导入:");
+            Console.WriteLine("using static System.IO.File;");
+            Console.WriteLine("if (Exists(" + "C:\\usestatic.txt\"))");
 
             UseStatic();
 
+            Console.WriteLine();
+            Console.WriteLine("6. Null-conditional operators Null条件运算符:");
+            Console.WriteLine("{" + "obj?.FirstName}" + "{obj?.LastName}");
+
             NullConditionalOpertaor();
+
 
             NameofExpression();
 
             IndexInitializer();
 
-            AwaitInCatchFinallyBlock();
+           // AwaitInCatchFinallyBlock();
+
+            Console.WriteLine("**************end C#6 new features********************");
         }
 
 
@@ -57,6 +87,8 @@ namespace Demo.NewFeatures
         //4. String interpolation 字符串格式化
         private string StringInterpolation()
         {
+
+
             return $"{FirstName} {LastName}";
         }
 
@@ -79,6 +111,7 @@ namespace Demo.NewFeatures
             {
                 string name = obj.FirstName;
             }
+
 
             //new way
             return $"{obj?.FirstName} {obj?.LastName}";
@@ -125,12 +158,14 @@ namespace Demo.NewFeatures
         //9.await in catch finally block
         public async Task<string> AwaitInCatchFinallyBlock()
         {
-            await logger.Log("Enter the " + nameof(AwaitInCatchFinallyBlock));
-
             var client = new System.Net.Http.HttpClient();
-            var streamTask = client.GetStringAsync("https://localHost:10000");
+
             try
             {
+                await logger.Log("Enter the " + nameof(AwaitInCatchFinallyBlock));
+               
+                var streamTask = client.GetStringAsync("https://localHost:10000");
+
                 var responseText = await streamTask;
                 return responseText;
             }

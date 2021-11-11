@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.DoYouPolymorphismToday
 {
-    class Poly
+    public class Poly
     {
         static void MainEntrys()
         {
@@ -38,15 +38,12 @@ namespace Demo.DoYouPolymorphismToday
                 {
                     // 一楼是图书馆办公室和借书柜台，不用于存放图书。
                     case "2nd":
-                        // 把书放进往二楼的推车里。
                         floor2Car.Add(book);
                         break;
                     case "3rd":
-                        // 把书放进往三楼的推车里。
                         floor3Car.Add(book);
                         break;
                     case "4th":
-                        // 把书放进往四楼的推车里。
                         floor4Car.Add(book);
                         break;
 
@@ -61,7 +58,6 @@ namespace Demo.DoYouPolymorphismToday
             // 而不是傻乎乎的每拿到一本书就往对应的书架跑。
             List<Book> mathBasket = new List<Book>();
             List<Book> physicsBasket = new List<Book>();
-            List<Book> chemistryBasket = new List<Book>();
 
             foreach (Book book in floor2Car)
             {
@@ -73,9 +69,6 @@ namespace Demo.DoYouPolymorphismToday
                     case "Physics":
                         physicsBasket.Add(book);
                         break;
-                    case "Chemistry":
-                        chemistryBasket.Add(book);
-                        break;
                 }
             }
 
@@ -83,18 +76,13 @@ namespace Demo.DoYouPolymorphismToday
             foreach (Book book in mathBasket)
                 floor2.MathShelves.Add(book);
 
-
             foreach (Book book in physicsBasket)
                 floor2.PhysicsShelves.Add(book);
-
-            foreach (Book book in chemistryBasket)
-                floor2.ChemistryShelves.Add(book);
 
             // 接着Poly把往三楼的车推到三楼。
             // 我们同样认为Poly会先把书按照所属类别分类好，放在装书篮里，
             // 而不是傻乎乎的每拿到一本书就往对应的书架跑。
             List<Book> economicsBasket = new List<Book>();
-            List<Book> marketingBasket = new List<Book>();
             List<Book> managementBasket = new List<Book>();
 
             foreach (Book book in floor3Car)
@@ -103,9 +91,6 @@ namespace Demo.DoYouPolymorphismToday
                 {
                     case "Economics":
                         economicsBasket.Add(book);
-                        break;
-                    case "Marketing":
-                        marketingBasket.Add(book);
                         break;
                     case "Management":
                         managementBasket.Add(book);
@@ -117,19 +102,13 @@ namespace Demo.DoYouPolymorphismToday
             foreach (Book book in economicsBasket)
                 floor3.EconomicsShelves.Add(book);
 
-
-            foreach (Book book in marketingBasket)
-                floor3.MarketingShelves.Add(book);
-
             foreach (Book book in managementBasket)
                 floor3.ManagementShelves.Add(book);
 
             // 接着Poly把往四楼的车推到四楼。
             // 如果Poly傻乎乎的每拿到一本书就往对应的书架跑，那我们只好让他跑了。
             List<Book> programmingBasket = new List<Book>();
-            List<Book> seBasket = new List<Book>();
             List<Book> databaseBasket = new List<Book>();
-            List<Book> networkBasket = new List<Book>();
 
             foreach (Book book in floor4Car)
             {
@@ -138,14 +117,8 @@ namespace Demo.DoYouPolymorphismToday
                     case "Programming":
                         programmingBasket.Add(book);
                         break;
-                    case "Software Engineering":
-                        seBasket.Add(book);
-                        break;
                     case "Database":
                         databaseBasket.Add(book);
-                        break;
-                    case "Network":
-                        networkBasket.Add(book);
                         break;
                 }
             }
@@ -154,26 +127,11 @@ namespace Demo.DoYouPolymorphismToday
             foreach (Book book in programmingBasket)
                 floor4.ProgrammingShelves.Add(book);
 
-
-            foreach (Book book in seBasket)
-                floor4.SEShelves.Add(book);
-
-
-            foreach (Book book in physicsBasket)
+            foreach (Book book in databaseBasket)
                 floor4.DatabaseShelves.Add(book);
 
-            foreach (Book book in chemistryBasket)
-                floor4.NetworkShelves.Add(book);
 
             // 最后，Poly整个人躺在地上
-
-        }
-
-        private class Library
-        {
-            public Floor Floor2 { get; internal set; }
-            public Floor Floor3 { get; internal set; }
-            public Floor Floor4 { get; internal set; }
         }
 
         private class Book
@@ -186,18 +144,23 @@ namespace Demo.DoYouPolymorphismToday
         {
             public IList<Book> MathShelves { get; internal set; }
             public IList<Book> PhysicsShelves { get; internal set; }
-            public IList<Book> ChemistryShelves { get; internal set; }
 
 
             public IList<Book> ManagementShelves { get; internal set; }
             public IList<Book> EconomicsShelves { get; internal set; }
-            public IList<Book> MarketingShelves { get; internal set; }
 
 
             public IList<Book> ProgrammingShelves { get; internal set; }
-            public IList<Book> SEShelves { get; internal set; }
             public IList<Book> DatabaseShelves { get; internal set; }
-            public IList<Book> NetworkShelves { get; internal set; }
+        }
+
+        private class Library
+        {
+            public Floor Floor2 { get; internal set; }
+            public Floor Floor3 { get; internal set; }
+            public Floor Floor4 { get; internal set; }
         }
     }
+
+
 }

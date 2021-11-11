@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Demo.Infrastructure;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Demo.Feature_CSharp8
 {
@@ -15,7 +12,12 @@ namespace Demo.Feature_CSharp8
         }
         public void ShowNewFeatures()
         {
+            Console.WriteLine("**************begin C#8 new features********************");
             ReadonlyMembers();
+
+            DefaultInterfaceMethods();
+
+            PatternMatchingEnhancements();
 
             UsingDeclarations();
 
@@ -27,32 +29,36 @@ namespace Demo.Feature_CSharp8
 
             AsynchronousStreams();
 
+            IndicesandRanges();
+
+            NullCoalescingAssignment();
+
+            UnmanagedConstructedTypes();
+
+            StackallocInNestedExpressions();
+            Console.WriteLine("**************end C#8 new features********************");
         }
 
-        private void AsynchronousStreams()
+
+        private void ReadonlyMembers()
         {
-            throw new NotImplementedException();
+            var rm = new Struct_ReadonlyMembers();
+
+            Console.WriteLine(rm.Distance);
         }
 
-        private void NullableReferenceTypes()
+        private void DefaultInterfaceMethods()
         {
-            throw new NotImplementedException();
+            /*"Interfaces are immutable once they've been released! 
+            This is a breaking change!" C# 8.0 adds default interface implementations for upgrading interfaces. 
+            The library authors can add new members to the interface and provide a default implementation for those members.
+            */
+
         }
 
-        private void DisposableRefStructs()
+        private void PatternMatchingEnhancements()
         {
-            /*A struct declared with the ref modifier may not implement any interfaces and so cannot implement IDisposable. 
-             * Therefore, to enable a ref struct to be disposed, 
-             * it must have an accessible void Dispose() method. This also applies to readonly ref struct declarations.*/
-        }
 
-        private void StaticLocalFunctions()
-        {
-            int y = 5;
-            int x = 7;
-            var sum =  Add(x, y);
-
-            static int Add(int left, int right) => left + right;
         }
 
         private void UsingDeclarations()
@@ -63,12 +69,59 @@ namespace Demo.Feature_CSharp8
 
         }
 
-        private void ReadonlyMembers()
+        private void StaticLocalFunctions()
         {
-            var rm = new Struct_ReadonlyMembers();
+            int y = 5;
+            int x = 7;
+            var sum = Add(x, y);
 
-            Console.WriteLine(rm.Distance);
+            static int Add(int left, int right) => left + right;
         }
+
+        private void DisposableRefStructs()
+        {
+            /*A struct declared with the ref modifier may not implement any interfaces and so cannot implement IDisposable. 
+             * Therefore, to enable a ref struct to be disposed, 
+             * it must have an accessible void Dispose() method. This also applies to readonly ref struct declarations.*/
+        }
+
+        private void NullableReferenceTypes()
+        {
+            string s = null;
+            string? s2 = null;
+        }
+
+        private void AsynchronousStreams()
+        {
+        }
+
+        private void IndicesandRanges()
+        {
+            var words = new string[]
+            {
+                            // index from start    index from end
+                "The",      // 0                   ^9
+                "quick",    // 1                   ^8
+                "brown",    // 2                   ^7
+                "fox",      // 3                   ^6
+                "jumped",   // 4                   ^5
+                "over",     // 5                   ^4
+                "the",      // 6                   ^3
+                "lazy",     // 7                   ^2
+                "dog"       // 8                   ^1
+            };              // 9 (or words.Length) ^0 --throw exception
+
+            //Indices
+            Console.WriteLine($"The last word is {words[^1]}"); //dog
+
+            //Range
+            var quickBrownFox = words[1..4];   //words[1] words[2] words[3]
+            var lazyDog = words[^2..^0];// words[^2] words[^1]
+            var allWords = words[..]; // contains all.
+            var firstPhrase = words[..4]; // contains "The" "quick" "through" "fox"
+            var lastPhrase = words[6..]; // contains "the", "lazy" "dog"
+        }
+
 
         static void WriteLinesToFile(IEnumerable<string> lines)
         {
@@ -83,6 +136,49 @@ namespace Demo.Feature_CSharp8
 
             // file is disposed here
         }
+        private void NullCoalescingAssignment()
+        {
+            /*C# 8.0 introduces the operator ??=. 
+             * You can use it to assign the value of its right-hand operand to its left-hand operand only if the left-hand operand evaluates to null.
+             */
+            List<int> numbers = null;
+            int? i = null;
+
+            numbers ??= new List<int>();
+            numbers.Add(i ??= 17);
+            numbers.Add(i ??= 20);
+
+            Console.WriteLine(string.Join(" ", numbers));  // output: 17 17
+            Console.WriteLine(i);  // output: 17
+        }
+
+        private void UnmanagedConstructedTypes()
+        {
+            Span<Coords<int>> coordinates = stackalloc[]
+            {
+                new Coords<int> { X = 0, Y = 0 },
+                new Coords<int> { X = 0, Y = 3 },
+                new Coords<int> { X = 4, Y = 0 }
+            };
+
+        }
+
+        private void StackallocInNestedExpressions()
+        {
+            Span<int> numbers = stackalloc[] { 1, 2, 3, 4, 5, 6 };
+            var ind = numbers.IndexOfAny(stackalloc[] { 2, 4, 6, 8 });
+            Console.WriteLine(ind);  // output: 1
+        }
+
+
+        //the Coords<int> type is an unmanaged type in C# 8.0 and later
+        public struct Coords<T>
+        {
+            public T X;
+            public T Y;
+        }
+
+
     }
 
 

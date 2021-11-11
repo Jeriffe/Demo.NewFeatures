@@ -1,5 +1,4 @@
-﻿using Demo.Infrastructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +11,8 @@ namespace Demo.Feature_CSharp8
         // Main function 
         static async Task Main(string[] args)
         {
-            List<ICSharp> sharps = new List<ICSharp> { new CSharp8(), };
-
-            sharps.ForEach(c => c.ShowNewFeatures());
-
-            Console.ReadLine();
+            // Printing Hello 
+            Console.WriteLine("Hello");
 
             Console.ReadKey();
         }

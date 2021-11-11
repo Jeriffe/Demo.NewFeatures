@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Demo.DoYouPolymorphismToday.Poly">
+    <Position X="16.75" Y="5.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Demo.DoYouPolymorphismToday.Poly.Book" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Poly.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Demo.DoYouPolymorphismToday.Poly.Floor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Poly.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Demo.DoYouPolymorphismToday.Poly.Library" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Poly.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Poly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.Library">
+    <Position X="13.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.Floor">
+    <Position X="14.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABgAAAQAAAAABAAAAQCAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.Book" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.Floor2Book" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.Floor3Book" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.Floor4Book" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.MathBook" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.PhysicsBook" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.ManagementBook" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.EconomicsBook" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.ProgrammingBook" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.DoYouPolymorphismToday.DatabaseBook" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Polymorphism.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

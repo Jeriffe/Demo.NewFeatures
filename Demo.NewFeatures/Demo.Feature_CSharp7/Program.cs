@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,9 +17,7 @@ namespace Demo.CSharp7
     {
         static async Task Main(string[] args)
         {
-
-
-            List<ICSharp> sharps = new List<ICSharp> { new CSharp7(), };
+            var sharps = new List<ICSharp> { new CSharp7(), };
 
             sharps.ForEach(c => c.ShowNewFeatures());
 

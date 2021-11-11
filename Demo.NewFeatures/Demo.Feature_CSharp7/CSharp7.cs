@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -15,6 +16,7 @@ namespace Demo.CSharp7
         }
         public void ShowNewFeatures()
         {
+            Console.WriteLine("**************begin C#7 new features********************");
             OutVariables();
 
             TuplesEnhancement();
@@ -39,6 +41,7 @@ namespace Demo.CSharp7
 
             NumericLiteralSyntaxImprovements();
 
+            Console.WriteLine("**************end C#7 new features********************");
         }
 
 
@@ -161,9 +164,7 @@ namespace Demo.CSharp7
                         throw new ArgumentNullException(nameof(shape));
                 }
             }
-
         }
-
 
         private (string a, int b) Discards()
         {
