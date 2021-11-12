@@ -18,13 +18,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Feature_CSharp8", "Demo.Feature_CSharp8\Demo.Feature_CSharp8.csproj", "{03C69E9C-8CAF-4DDB-A524-E53B06EE7F42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Feature_CSharp10", "Demo.Feature_CSharp10\Demo.Feature_CSharp10.csproj", "{31EF3878-40C0-49F9-BDA8-51D42CFE2021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Feature_CSharp10", "Demo.Feature_CSharp10\Demo.Feature_CSharp10.csproj", "{31EF3878-40C0-49F9-BDA8-51D42CFE2021}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Infrastructure", "Demo.Infrastructure\Demo.Infrastructure.csproj", "{418BE2AA-1FE0-4D31-A5CA-384A99938089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.NewFeaturesTest", "Demo.NewFeaturesTest\Demo.NewFeaturesTest.csproj", "{9341C8AC-43D5-462A-BF00-2ABB5D065AE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.NewFeaturesTest", "Demo.NewFeaturesTest\Demo.NewFeaturesTest.csproj", "{9341C8AC-43D5-462A-BF00-2ABB5D065AE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Feature_CSharp9", "Demo.Feature_CSharp9\Demo.Feature_CSharp9.csproj", "{03AA94F9-858B-4D18-83EC-60296D013E88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Feature_CSharp9", "Demo.Feature_CSharp9\Demo.Feature_CSharp9.csproj", "{03AA94F9-858B-4D18-83EC-60296D013E88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{FD5CBFAB-0F29-432C-A754-0004036EECC9}"
+	ProjectSection(SolutionItems) = preProject
+		..\Docs\C# 9_ Improved pattern matching.pdf = ..\Docs\C# 9_ Improved pattern matching.pdf
+		..\Docs\CSharp9.pdf = ..\Docs\CSharp9.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
