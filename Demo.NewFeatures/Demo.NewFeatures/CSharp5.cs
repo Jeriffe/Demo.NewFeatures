@@ -16,9 +16,11 @@ namespace Demo.NewFeatures
         }
         public void ShowNewFeatures()
         {
+            Console.WriteLine($"********************begin {this.GetType().Name} new features********************");
             AsyncFeature();
 
             CallerInformation();
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
         }
 
         private void CallerInformation()

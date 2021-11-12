@@ -16,7 +16,7 @@ namespace Demo.CSharp7
         }
         public void ShowNewFeatures()
         {
-            Console.WriteLine("**************begin C#7 new features********************");
+            Console.WriteLine($"********************begin {this.GetType().Name} new features********************");
             OutVariables();
 
             TuplesEnhancement();
@@ -41,7 +41,7 @@ namespace Demo.CSharp7
 
             NumericLiteralSyntaxImprovements();
 
-            Console.WriteLine("**************end C#7 new features********************");
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
         }
 
 

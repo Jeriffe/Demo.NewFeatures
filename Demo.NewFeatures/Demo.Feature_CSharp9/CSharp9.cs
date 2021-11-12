@@ -14,7 +14,8 @@ namespace Demo.Feature_CSharp9
         {
             Console.WriteLine($"**************begin {typeof(CSharp9).Name} new features********************");
 
-            Console.WriteLine($"**************end {typeof(CSharp9).Name} new features********************");
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
+
         }
     }
 

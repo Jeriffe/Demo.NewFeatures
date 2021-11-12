@@ -12,9 +12,10 @@ namespace Demo.Feature_CSharp10
         }
         public void ShowNewFeatures()
         {
-            Console.WriteLine($"**************begin {typeof(CSharp10).Name} new features********************");
+            Console.WriteLine($"**************begin {this.GetType().Name} new features********************");
 
-            Console.WriteLine($"**************end {typeof(CSharp10).Name} new features********************");
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
+
         }
     }
 

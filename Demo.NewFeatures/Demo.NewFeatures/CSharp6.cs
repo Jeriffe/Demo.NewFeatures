@@ -28,7 +28,7 @@ namespace Demo.NewFeatures
 
         public void ShowNewFeatures()
         {
-            Console.WriteLine("**************begin C#6 new features********************");
+            Console.WriteLine($"********************begin {this.GetType().Name} new features********************");
 
             Console.WriteLine();
             Console.WriteLine("1. Auto-property initializers 自动属性默认初始化");
@@ -71,9 +71,9 @@ namespace Demo.NewFeatures
 
             IndexInitializer();
 
-           // AwaitInCatchFinallyBlock();
+            // AwaitInCatchFinallyBlock();
 
-            Console.WriteLine("**************end C#6 new features********************");
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
         }
 
 

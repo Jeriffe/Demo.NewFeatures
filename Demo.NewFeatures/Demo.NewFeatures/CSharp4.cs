@@ -19,6 +19,7 @@ namespace Demo.NewFeatures
         public void ShowNewFeatures()
         {
 
+            Console.WriteLine($"********************begin {this.GetType().Name} new features********************");
             NamedParameters();
 
             OptionalParameters();
@@ -26,6 +27,7 @@ namespace Demo.NewFeatures
             MoreCOMSupport();
 
             DymamicBinding();
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
         }
 
         private void DymamicBinding()

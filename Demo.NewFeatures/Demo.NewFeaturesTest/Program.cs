@@ -10,7 +10,15 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        //  Console.OutputEncoding = Encoding.GetEncoding("gb2312");
+        /*In .net core project,  when we got encoding error:  'GB2312' is not a supported encoding name.
+          To resovled it,  we need to do two steps:
+            1.Install System.Text.Encoding.CodePages
+            2.RegisterProvider programming
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); 
+        */
+        
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        Console.OutputEncoding = Encoding.GetEncoding("gb2312");
 
         var sharps = new List<ICSharp>
             {

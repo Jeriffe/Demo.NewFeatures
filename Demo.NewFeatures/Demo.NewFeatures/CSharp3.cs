@@ -17,6 +17,7 @@ namespace Demo.NewFeatures
 
         public void ShowNewFeatures()
         {
+            Console.WriteLine($"********************begin {this.GetType().Name} new features********************");
             AutoProperties();
 
             AnonymousTypes();
@@ -32,6 +33,7 @@ namespace Demo.NewFeatures
             ObjectAndCollectionInitializers();
 
             PartialMethod();
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
         }
 
         private void PartialMethod()

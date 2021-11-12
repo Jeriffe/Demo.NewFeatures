@@ -12,7 +12,8 @@ namespace Demo.Feature_CSharp8
         }
         public void ShowNewFeatures()
         {
-            Console.WriteLine("**************begin C#8 new features********************");
+            Console.WriteLine($"********************begin {this.GetType().Name} new features********************");
+
             ReadonlyMembers();
 
             DefaultInterfaceMethods();
@@ -36,7 +37,7 @@ namespace Demo.Feature_CSharp8
             UnmanagedConstructedTypes();
 
             StackallocInNestedExpressions();
-            Console.WriteLine("**************end C#8 new features********************");
+            Console.WriteLine($"********************end {this.GetType().Name} new features********************");
         }
 
 

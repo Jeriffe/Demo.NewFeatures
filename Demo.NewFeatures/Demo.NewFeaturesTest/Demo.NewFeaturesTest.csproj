@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Demo.DoYouPolymorphismToday\Demo.DoYouPolymorphismToday.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp10\Demo.Feature_CSharp10.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp7\Demo.Feature_CSharp7.csproj" />
