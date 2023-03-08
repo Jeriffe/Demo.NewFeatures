@@ -1,68 +1,33 @@
 ﻿global using Demo.Infrastructure;
-global using System.Linq;
-using System.Drawing;
 using System.Runtime.CompilerServices;
-using System.Threading;
 
 //File Namespaces
 //With this feature you can define the namespace on the file level like this:
-namespace Demo.Feature_CSharp10;
+namespace Demo.Feature_CSharp11;
 
 
-public class CSharp10 : ICSharp
+public class CSharp11 : ICSharp
 {
     public void ShowNewFeatures()
     {
         Console.WriteLine($"**************begin {this.GetType().Name} new features********************");
-
-        //记录结构
-        //可以使用 record struct 或 readonly record struct 声明声明值类型记录。 现在，你可以通过 record class 声明阐明 record 是引用类型。
-        RecordStruct();
-
-        //Parameterless struct constructors
-
-        //Global Using Directive(global using 指令)  -> 可将 global 修饰符添加到任何 using 指令
-        GlobalUsingDirective();
-
-        //文件范围的命名空间声明
-        FileNamespaces();
-
-        //Extended property patterns 扩展属性模式
-        ExtendedPropertyPatterns();
-
-        //Constant interpolated strings (可使用 const 内插字符串)
-        ConstantInterpolatedStrings();
-
-        //Lambda expression improvements
-        {
-            //var f = (int x) => x; // 给 lambda 设置
-            //f = [return: Foo] (x) => x; // 给 lambda 返回值设置
-            //f = ([Foo] x) => x; // 给 lambda 参数设置
-        }
-
-        //Record types can seal ToString 记录类型可密封 ToString() -在记录类型中重写 ToString 时可以添加 sealed 修饰符
-
-        //Improved definite assignment 改进型明确赋值
-
-        //Assignment and declaration in same deconstruction 在同一析构中可同时进行赋值和声明
-        {
-            //This change removes a restriction from earlier versions of C#. Previously, 
-            //a deconstruction could assign all values to existing variables, or initialize newly declared variables:
-        }
-
-        //可在方法上使用 AsyncMethodBuilder 属性
-
-        //CallerArgumentExpression attribute diagnostics 属性
-        {
-            void Foo(int value, [CallerArgumentExpression("value")] string? expression = null)
-            {
-                Console.WriteLine(expression + " = " + value);
-            }
-
-            Foo(4 + 5);
-        }
-
-        //增强的#line pragma  -增强功能支持使用 Razor 等域特定语言 (DSL) 实现更详细的输出
+        
+        /*  Raw string literals
+            Generic math support
+            Generic attributes
+            UTF-8 string literals
+            Newlines in string interpolation expressions
+            List patterns
+            File-local types
+            Required members
+            Auto-default structs
+            Pattern match Span<char> on a constant string
+            Extended nameof scope
+            Numeric IntPtr
+            ref fields and scoped ref
+            Improved method group conversion to delegate
+            Warning wave 7
+        */
 
         Console.WriteLine($"********************end {this.GetType().Name} new features********************");
     }

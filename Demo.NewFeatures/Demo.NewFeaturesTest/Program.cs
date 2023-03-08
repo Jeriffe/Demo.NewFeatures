@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Demo.CSharp7;
 using Demo.Feature_CSharp10;
+using Demo.Feature_CSharp11;
 using Demo.Feature_CSharp8;
 using Demo.Feature_CSharp9;
 using Demo.Infrastructure;
@@ -31,6 +32,7 @@ class Program
                 new CSharp8(),
                 new CSharp9(),
                 new CSharp10(),
+                new CSharp11(),
             };
 
         sharps.ForEach(c => c.ShowNewFeatures());

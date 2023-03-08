@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Demo.DoYouPolymorphismToday\Demo.DoYouPolymorphismToday.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp10\Demo.Feature_CSharp10.csproj" />
+    <ProjectReference Include="..\Demo.Feature_CSharp11\Demo.Feature_CSharp11.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp7\Demo.Feature_CSharp7.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp8\Demo.Feature_CSharp8.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp9\Demo.Feature_CSharp9.csproj" />

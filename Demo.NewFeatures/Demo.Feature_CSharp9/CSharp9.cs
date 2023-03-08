@@ -12,7 +12,7 @@ namespace Demo.Feature_CSharp9
         {
 
         }
-     
+
         public void ShowNewFeatures()
         {
             Console.WriteLine($"**************begin {typeof(CSharp9).Name} new features********************");
@@ -24,25 +24,69 @@ namespace Demo.Feature_CSharp9
             InitAccessorsAndReadonlyFields();
 
             //记录（Records）
-            Records();
             {
-                //with 表达式（With-expressions）
-                WithExpressionsRecords();
+                Records();
+                {
+                    //with 表达式（With-expressions）
+                    WithExpressionsRecords();
 
-                //基于值的相等（Value-based equality）
-                ValuebasedEqualityRecords();
+                    //基于值的相等（Value-based equality）
+                    ValuebasedEqualityRecords();
 
-                //继承（Inheritance）
-                InheritanceRecords();
+                    //继承（Inheritance）
+                    InheritanceRecords();
 
-                PositionalRecords();
+                    PositionalRecords();
+
+
+                    void WithExpressionsRecords()
+                    {
+                        var person = new RPerson { FirstName = "Mads", LastName = "Nielsen" };
+                        //records allow for a new kind of expression; the with-expression:
+                        var otherPerson = person with { LastName = "Torgersen" };
+
+                        Console.WriteLine($"LastName of copy RPerson is : {otherPerson.LastName}");
+                    }
+                    void ValuebasedEqualityRecords()
+                    {
+                        var person = new RPerson { FirstName = "Mads", LastName = "Nielsen" };
+                        //records allow for a new kind of expression; the with-expression:
+                        var otherPerson = person with { LastName = "Torgersen" };
+
+                        var originalPerson = otherPerson with { LastName = "Nielsen" };
+
+                        Console.WriteLine($"ReferenceEquals(person, originalPerson): {ReferenceEquals(person, originalPerson)}");
+                        Console.WriteLine($"Equals(person, originalPerson): {Equals(person, originalPerson)}");
+                    }
+                    void InheritanceRecords()
+                    {
+                        //Say that I create a Student but store it in a Person variable:
+                        RPerson student = new RStudent { FirstName = "Mads", LastName = "Nielsen", ID = 129 };
+
+                        //A with-expression will still copy the whole object and keep the runtime type:
+                        var otherStudent = student with { LastName = "Torgersen" };
+
+                        Console.WriteLine(otherStudent is RPerson); // true
+                    }
+                    void PositionalRecords()
+                    {
+                        var person = new PositionalRecords("Mads", "Torgersen"); //（positional construction）
+                        var (f, l) = person;                          //（positional deconstruction）
+                    }
+
+                }
+                void Records()
+                {
+                    //If you find yourself wanting the whole object to be immutable and behave like a value,
+                    //then you should consider declaring it as a record:
+                    var person = new RPerson { FirstName = "Mads", LastName = "Nielsen" };
+                }
             }
-
+           
             //顶级程序（Top-level programs） :  refer to Program.cs
             ToplevelPrograms();
 
             //改进的模式匹配（Improved pattern matching）
-            ImprovedPatternMatching();
             {
                 SimpletypePatterns();
 
@@ -51,6 +95,78 @@ namespace Demo.Feature_CSharp9
                 LogicalPatterns();
 
                 NotPatterns();
+
+                void SimpletypePatterns()
+                {
+                    var input = new RStudent();
+
+                    // is pattern with Type
+                    if (input is RPerson)
+                    { }
+
+                    // case pattern with Type
+                    switch (input)
+                    {
+                        case RPerson:
+                            break;
+                    }
+
+
+
+                }
+                void RelationalPatterns()
+                {
+                    //C# 9 allows you to use relational pattern which enables the use of <, >, <= and >= in patterns
+                    var product = new Product { Name = "Food", CategoryId = 4 };
+                    var tax = GetTax(product); // Returns 5
+
+                    // Relational pattern
+                    static int GetTax(Product p) => p.CategoryId switch
+                    {
+                        1 => 0,
+                        < 5 => 5,
+                        > 20 => 15,
+                        _ => 10
+                    };
+                }
+                void LogicalPatterns()
+                {
+                    //C# 9 lets you use logical operators like ‘and’, ‘or’ and ‘not’ 
+                    var product = new Product { Name = "Food", CategoryId = 4 };
+                    GetTax(product); // Returns 5
+
+
+                    // Relational pattern combined with logical patterns
+                    static int GetTax(Product p) => p.CategoryId switch
+                    {
+                        0 or 1 => 0,
+                        > 1 and < 5 => 5,
+                        > 20 => 15,
+                        _ => 10
+                    };
+                }
+                void NotPatterns()
+                {
+                    //‘not‘ logical operator can also be used in a if statement (it works also with a ternary statement),
+                    var product = new Product { Name = "Food", CategoryId = 4 };
+
+                    GetDiscount(product); // Returns 25
+
+                    GetDiscount2(product); // Returns 25
+
+                    // Not pattern
+                    static int GetDiscount(Product p)
+                    {
+                        if (p is not ElectronicProduct)
+                        {
+                            return 25;
+                        }
+
+                        return 0;
+                    }
+
+                    static int GetDiscount2(Product p) => p is not ElectronicProduct ? 25 : 0;
+                }
             };
 
             //目标类型的 new 表达式（Target-typed new expressions）
@@ -58,7 +174,6 @@ namespace Demo.Feature_CSharp9
 
 
             Console.WriteLine($"********************end {this.GetType().Name} new features********************");
-
         }
 
         private void TargettypedNewExpressions()
@@ -89,47 +204,6 @@ namespace Demo.Feature_CSharp9
             //  person.Age = 36; // ERROR!
         }
 
-        private void Records()
-        {
-            //If you find yourself wanting the whole object to be immutable and behave like a value,
-            //then you should consider declaring it as a record:
-            var person = new RPerson { FirstName = "Mads", LastName = "Nielsen" };
-        }
-        private void WithExpressionsRecords()
-        {
-            var person = new RPerson { FirstName = "Mads", LastName = "Nielsen" };
-            //records allow for a new kind of expression; the with-expression:
-            var otherPerson = person with { LastName = "Torgersen" };
-
-            Console.WriteLine($"LastName of copy RPerson is : {otherPerson.LastName}");
-        }
-        private void ValuebasedEqualityRecords()
-        {
-            var person = new RPerson { FirstName = "Mads", LastName = "Nielsen" };
-            //records allow for a new kind of expression; the with-expression:
-            var otherPerson = person with { LastName = "Torgersen" };
-
-            var originalPerson = otherPerson with { LastName = "Nielsen" };
-
-            Console.WriteLine($"ReferenceEquals(person, originalPerson): {ReferenceEquals(person, originalPerson)  }");
-            Console.WriteLine($"Equals(person, originalPerson): {Equals(person, originalPerson)  }");
-        }
-        private void InheritanceRecords()
-        {
-            //Say that I create a Student but store it in a Person variable:
-            RPerson student = new RStudent { FirstName = "Mads", LastName = "Nielsen", ID = 129 };
-
-            //A with-expression will still copy the whole object and keep the runtime type:
-            var otherStudent = student with { LastName = "Torgersen" };
-
-            Console.WriteLine(otherStudent is RPerson); // true
-        }
-
-        private void PositionalRecords()
-        {
-            var person = new PositionalRecords("Mads", "Torgersen"); //（positional construction）
-            var (f, l) = person;                          //（positional deconstruction）
-        }
 
         private void ToplevelPrograms()
         {
@@ -141,86 +215,6 @@ namespace Demo.Feature_CSharp9
                 Console.WriteLine("Hello World!");
              */
         }
-
-        private void ImprovedPatternMatching()
-        {
-
-        }
-        private void SimpletypePatterns()
-        {
-            var input = new RStudent();
-
-            // is pattern with Type
-            if (input is RPerson)
-            { }
-
-            // case pattern with Type
-            switch (input)
-            {
-                case RPerson:
-                    break;
-            }
-
-
-
-        }
-
-        private void RelationalPatterns()
-        {
-            //C# 9 allows you to use relational pattern which enables the use of <, >, <= and >= in patterns
-            var product = new Product { Name = "Food", CategoryId = 4 };
-            var tax = GetTax(product); // Returns 5
-
-            // Relational pattern
-            static int GetTax(Product p) => p.CategoryId switch
-            {
-                1 => 0,
-                < 5 => 5,
-                > 20 => 15,
-                _ => 10
-            };
-        }
-
-        private void LogicalPatterns()
-        {
-            //C# 9 lets you use logical operators like ‘and’, ‘or’ and ‘not’ 
-            var product = new Product { Name = "Food", CategoryId = 4 };
-            GetTax(product); // Returns 5
-
-
-            // Relational pattern combined with logical patterns
-            static int GetTax(Product p) => p.CategoryId switch
-            {
-                0 or 1 => 0,
-                > 1 and < 5 => 5,
-                > 20 => 15,
-                _ => 10
-            };
-        }
-
-        private void NotPatterns()
-        {
-            //‘not‘ logical operator can also be used in a if statement (it works also with a ternary statement),
-            var product = new Product { Name = "Food", CategoryId = 4 };
-
-            GetDiscount(product); // Returns 25
-
-            GetDiscount2(product); // Returns 25
-
-            // Not pattern
-            static int GetDiscount(Product p)
-            {
-                if (p is not ElectronicProduct)
-                {
-                    return 25;
-                }
-
-                return 0;
-            }
-
-            static int GetDiscount2(Product p) => p is not ElectronicProduct ? 25 : 0;
-        }
-
     }
     public record RecordsWithoutPositional
     {

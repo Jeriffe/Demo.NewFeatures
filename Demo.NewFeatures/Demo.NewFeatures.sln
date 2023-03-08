@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{FD5CBFAB-0
 		..\Docs\CSharp9.pdf = ..\Docs\CSharp9.pdf
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Feature_CSharp11", "Demo.Feature_CSharp11\Demo.Feature_CSharp11.csproj", "{7189EAE1-1A84-402B-A67F-96855323B49E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{03AA94F9-858B-4D18-83EC-60296D013E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03AA94F9-858B-4D18-83EC-60296D013E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03AA94F9-858B-4D18-83EC-60296D013E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7189EAE1-1A84-402B-A67F-96855323B49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7189EAE1-1A84-402B-A67F-96855323B49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7189EAE1-1A84-402B-A67F-96855323B49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7189EAE1-1A84-402B-A67F-96855323B49E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
