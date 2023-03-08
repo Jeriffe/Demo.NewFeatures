@@ -18,10 +18,11 @@ namespace Demo.CSharp7
         {
             /*7.2
             * Non-trailing named arguments
-            * Leading underscores in numeric literals
             * private protected access modifier
             * Conditional ref expressions
+            * Digit Separator After Base Specifier(Leading Digit Separator)
             */
+
             WriteSafeAndEfficientCSharpCode();
 
             NonTrailingNamedArguments();
@@ -32,6 +33,14 @@ namespace Demo.CSharp7
             PrivateProtectedAccessModifier();
 
             ConditionalRefExpressions();
+        }
+
+        private void WriteSafeAndEfficientCSharpCode()
+        {
+            //Declare readonly structs for immutable value types
+            new ReadonlyPoint2D(2, 4);
+
+            //Use ref readonly return statements for large structures when possible
         }
 
         private void ConditionalRefExpressions()
@@ -50,15 +59,35 @@ namespace Demo.CSharp7
              * While protected internal allows access by derived classes or classes 
              * that are in the same assembly, private protected limits access to derived types declared in the same assembly.
              */
+
+            /*
+            class Employee
+            {
+                public int Id { get; set; }
+                protected int Name { get; set; }
+                internal DateTime DOB { get; set; }
+                private Decimal Salary { get; set; }
+                protected internal int DepatmentId { get; set; }
+                private protected string ProjectName { get; set; }
+            }
+            */
         }
 
         //
         private void LeadingUnderscoresInNumericLiterals()
         {
-            //The implementation of support for digit separators in C# 7.0 
-            //didn't allow the _ to be the first character of the literal value.
-            //Hex and binary numeric literals may now begin with an _.
-            int binaryValue = 0b_0101_0101;
+            /*
+            123      // permitted in C# 1.0 and later
+            1_2_3    // permitted in C# 7.0 and later
+            0x1_2_3  // permitted in C# 7.0 and later
+            0b101    // binary literals added in C# 7.0
+            0b1_0_1  // permitted in C# 7.0 and later
+            */
+
+            /*in C# 7.2, _ is permitted after the `0x` or `0b`
+            0x_1_2   // permitted in C# 7.2 and later
+            0b_1_0_1 // permitted in C# 7.2 and later
+            */
         }
 
         private void NonTrailingNamedArguments()
@@ -76,13 +105,7 @@ namespace Demo.CSharp7
             }
         }
 
-        private void WriteSafeAndEfficientCSharpCode()
-        {
-            //Declare readonly structs for immutable value types
-            new ReadonlyPoint2D(2, 4);
 
-            //Use ref readonly return statements for large structures when possible
-        }
     }
 
     readonly public struct ReadonlyPoint2D

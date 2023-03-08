@@ -63,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="0_Doc\C#7.pdf" />
+    <None Include="0_Doc\New Features in C# 7.0.pdf" />
+    <None Include="0_Doc\New Features in C# 7.1.pdf" />
+    <None Include="0_Doc\New Features in C# 7.3.pdf" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

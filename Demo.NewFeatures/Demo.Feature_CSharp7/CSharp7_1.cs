@@ -1,6 +1,7 @@
 ﻿using Demo.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -23,49 +24,21 @@ namespace Demo.CSharp7
 
         public void ShowNewFeatures()
         {
+            //Async Main
             AsyncMain();
 
-            DefaultLiteralExpressions();
-
+            //Inferred tuple element names(推断元组元素的名称)
             InferredTupleElementNames();
 
-            PatternMatchingOnGenericTypeParameters();
-
+            //Default literals(默认常值)
+            DefaultLiteralExpressions();
         }
 
-       
-
-        private void PatternMatchingOnGenericTypeParameters()
-        {
-            /*Beginning with C# 7.1, the pattern expression 
-             * for is and the switch type pattern may have the type of a generic type parameter. 
-             * This can be most useful when checking types 
-             * that may be either struct or class types, and you want to avoid boxing.*/
-        }
-
-        private void InferredTupleElementNames()
-        {
-            int count = 5;
-            string label = "Colors used in the map";
-            var pair = (count: count, label: label);
-
-            var enhance_pair = (count, label); // element names are "count" and "label"
-        }
-        /// <summary>
-        /// Default literal expressions are an enhancement to default value expressions. 
-        /// These expressions initialize a variable to the default value.
-        /// </summary>
-        private void DefaultLiteralExpressions()
-        {
-            //previous write:
-            Func<string, bool> whereClause = default(Func<string, bool>);
-
-            //new 
-            Func<string, bool> whereClause1 = default;
-        }
 
         private void AsyncMain()
         {
+            //这会让你可以直接在 Main 方法里 await， 这在以前是不行的。
+
             /*
             static int Main()
             {
@@ -85,6 +58,37 @@ namespace Demo.CSharp7
             }
             */
         }
-    }
 
+
+        private void InferredTupleElementNames()
+        {
+            int count = 5;
+            string label = "Colors used in the map";
+            var pair = (count: count, label: label);
+
+            var enhance_pair = (count, label); // element names are "count" and "label"
+        }
+        /// <summary>
+        /// Default literal expressions are an enhancement to default value expressions. 
+        /// These expressions initialize a variable to the default value.
+        /// </summary>
+        private void DefaultLiteralExpressions()
+        {
+            //older version 
+            {
+                int count = default(int);
+                const string str = default(string);
+                ObservableCollection<string> p = default(ObservableCollection<string>);
+                Func<string, bool> whereClause1 = default(Func<string, bool>);
+            }
+            //new 
+            {
+                int count = default(int);
+                const string str = default(string);
+                ObservableCollection<string> p = default(ObservableCollection<string>);
+                Func<string, bool> whereClause1 = default;
+            }
+        }
+
+    }
 }
