@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Demo.Infrastructure;
+using Demo.Feature_CSharp.Infrastructure;
 
-namespace Demo.NewFeatures
+namespace Demo.Feature_CSharp
 {
     public class CSharp3 : ICSharp
     {

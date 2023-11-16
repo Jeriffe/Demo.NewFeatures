@@ -1,10 +1,8 @@
-﻿using Demo.Infrastructure;
-using System;
-using System.Collections.Generic;
+﻿using Demo.Feature_CSharp.Infrastructure;
 
 //https://devblogs.microsoft.com/dotnet/c-9-0-on-the-record/
 
-namespace Demo.Feature_CSharp9
+namespace Demo.Feature_CSharp
 {
     public class CSharp9 : ICSharp
     {

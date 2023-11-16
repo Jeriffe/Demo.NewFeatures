@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -15,11 +15,11 @@
     <ProjectReference Include="..\Demo.DoYouPolymorphismToday\Demo.DoYouPolymorphismToday.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp10\Demo.Feature_CSharp10.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp11\Demo.Feature_CSharp11.csproj" />
-    <ProjectReference Include="..\Demo.Feature_CSharp7\Demo.Feature_CSharp7.csproj" />
+    <ProjectReference Include="..\Demo.Feature_CSharp12\Demo.Feature_CSharp12.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp8\Demo.Feature_CSharp8.csproj" />
     <ProjectReference Include="..\Demo.Feature_CSharp9\Demo.Feature_CSharp9.csproj" />
+    <ProjectReference Include="..\Demo.Feature_CSharp\Demo.Feature_CSharp.csproj" />
     <ProjectReference Include="..\Demo.Infrastructure\Demo.Infrastructure.csproj" />
-    <ProjectReference Include="..\Demo.NewFeatures\Demo.NewFeatures.csproj" />
   </ItemGroup>
 
 </Project>

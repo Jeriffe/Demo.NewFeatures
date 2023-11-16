@@ -1,83 +1,58 @@
 ﻿global using Demo.Feature_CSharp.Infrastructure;
-global using System.Linq;
-using Demo.Feature_CSharp.Infrastructure;
-using System.Drawing;
-using System.Runtime.CompilerServices;
-using System.Threading;
 
 //File Namespaces
 //With this feature you can define the namespace on the file level like this:
 namespace Demo.Feature_CSharp;
 
 
-public class CSharp10 : ICSharp
+public class CSharp12 : ICSharp
 {
     public void ShowNewFeatures()
     {
         Console.WriteLine($"**************begin {this.GetType().Name} new features********************");
 
-        //记录结构
-        //可以使用 record struct 或 readonly record struct 声明声明值类型记录。 现在，你可以通过 record class 声明阐明 record 是引用类型。
-        RecordStruct();
+        //Primary constructors
+        PrimayConstructors();
 
-        //Parameterless struct constructors
+        //Collection expressions
 
-        //Global Using Directive(global using 指令)  -> 可将 global 修饰符添加到任何 using 指令
-        GlobalUsingDirective();
+        //Inline arrays
 
-        //文件范围的命名空间声明
-        FileNamespaces();
+        //Optional parameters in lambda expressions
 
-        //Extended property patterns 扩展属性模式
-        ExtendedPropertyPatterns();
+        //ref readonly parameters
 
-        //Constant interpolated strings (可使用 const 内插字符串)
-        ConstantInterpolatedStrings();
+        //Alias any type
 
-        //Lambda expression improvements
-        {
-            //var f = (int x) => x; // 给 lambda 设置
-            //f = [return: Foo] (x) => x; // 给 lambda 返回值设置
-            //f = ([Foo] x) => x; // 给 lambda 参数设置
-        }
+        //Experimental attribute
 
-        //Record types can seal ToString 记录类型可密封 ToString() -在记录类型中重写 ToString 时可以添加 sealed 修饰符
+        //Interceptors
 
-        //Improved definite assignment 改进型明确赋值
-
-        //Assignment and declaration in same deconstruction 在同一析构中可同时进行赋值和声明
-        {
-            //This change removes a restriction from earlier versions of C#. Previously, 
-            //a deconstruction could assign all values to existing variables, or initialize newly declared variables:
-        }
-
-        //可在方法上使用 AsyncMethodBuilder 属性
-
-        //CallerArgumentExpression attribute diagnostics 属性
-        {
-            void Foo(int value, [CallerArgumentExpression("value")] string? expression = null)
-            {
-                Console.WriteLine(expression + " = " + value);
-            }
-
-            Foo(4 + 5);
-        }
-
-        //增强的#line pragma  -增强功能支持使用 Razor 等域特定语言 (DSL) 实现更详细的输出
 
         Console.WriteLine($"********************end {this.GetType().Name} new features********************");
     }
-    private void RecordStruct()
+
+    /// <summary>
+    /// Primay Constructors
+    /// </summary>
+    class Student(string name, int score)
     {
-        /*结构类型的改进
-            可以在结构类型中声明实例无参数构造函数，并在声明实例字段或属性时对它们进行初始化。 
-            with 表达式的左侧操作数可以是任何结构类型。
+        public string Name => name;
+        public int Score => score;
+        public void Greet() => Console.WriteLine($"Hello, {name}!");
+    }
+    private void PrimayConstructors()
+    {
+        /*Primary constructors allow you to declare parameters for a class or struct
+        in the same line as the type name.These parameters are in scope for the entire body of the type, 
+        and can be used to initialize fields, properties, or methods.
+
+        Primary constructors are immutable types that support value equality and deconstruction
         */
 
-        /*
-         *  older        -->  public record RPerson(string FirstName, string LastName);
-         *  new in c# 10 -->  public readonly record struct RPoint(double X, double Y, double Z);
-         */
+        var item = new Student("Claire", 99);
+        Console.WriteLine("----------PrimayConstructors------------");
+        Console.WriteLine($"{item.Name} got {item.Score} score.");
     }
 
     private void GlobalUsingDirective()

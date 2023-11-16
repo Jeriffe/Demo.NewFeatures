@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Demo.Infrastructure;
+﻿using Demo.Feature_CSharp.Infrastructure;
 
-namespace Demo.CSharp7
+namespace Demo.Feature_CSharp
 {
     public class CSharp7_3 : ICSharp
     {

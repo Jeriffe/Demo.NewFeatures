@@ -1,9 +1,8 @@
-﻿global using Demo.Infrastructure;
-using System.Runtime.CompilerServices;
+﻿global using Demo.Feature_CSharp.Infrastructure;
 
 //File Namespaces
 //With this feature you can define the namespace on the file level like this:
-namespace Demo.Feature_CSharp11;
+namespace Demo.Feature_CSharp;
 
 
 public class CSharp11 : ICSharp
@@ -49,7 +48,7 @@ public class CSharp11 : ICSharp
         /*C# 10 introduces is global. Using global, you will be able to define global usings for the whole project. 
          * In general, it is recommended to create a separate file which will contain these imports, something like usings.cs.
          * 
-         * global using Demo.Infrastructure;
+         * global using Demo.Feature_CSharp.Infrastructure;
          * global using System.Linq;
          */
     }

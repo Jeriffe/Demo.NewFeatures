@@ -1,18 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Demo.CSharp7;
-using Demo.Feature_CSharp10;
-using Demo.Feature_CSharp11;
-using Demo.Feature_CSharp8;
-using Demo.Feature_CSharp9;
-using Demo.Infrastructure;
-using Demo.NewFeatures;
+using Demo.Feature_CSharp;
+using Demo.Feature_CSharp.Infrastructure;
 using System.Text;
 class Program
 {
     static async Task Main(string[] args)
     {
         /*In .net core project,  when we got encoding error:  'GB2312' is not a supported encoding name.
-          To resovled it,  we need to do two steps:
+          To resolved it,  we need to do two steps:
             1.Install System.Text.Encoding.CodePages
             2.RegisterProvider programming
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); 
@@ -33,6 +28,7 @@ class Program
                 new CSharp9(),
                 new CSharp10(),
                 new CSharp11(),
+                new CSharp12(),
             };
 
         sharps.ForEach(c => c.ShowNewFeatures());

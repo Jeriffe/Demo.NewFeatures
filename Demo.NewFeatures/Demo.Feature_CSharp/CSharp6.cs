@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Demo.Feature_CSharp.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Demo.Infrastructure;
-
 //5. Use Static --Import
 using static System.IO.File;
 
-namespace Demo.NewFeatures
+namespace Demo.Feature_CSharp
 {
     public class CSharp6 : ICSharp
     {

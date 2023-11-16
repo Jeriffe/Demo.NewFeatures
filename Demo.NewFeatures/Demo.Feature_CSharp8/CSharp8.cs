@@ -1,9 +1,9 @@
-﻿using Demo.Infrastructure;
+﻿using Demo.Feature_CSharp.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Demo.Feature_CSharp8
+namespace Demo.Feature_CSharp
 {
     public class CSharp8 : ICSharp
     {

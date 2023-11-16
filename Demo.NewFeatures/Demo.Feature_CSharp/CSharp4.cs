@@ -1,13 +1,9 @@
-﻿using System;
+﻿using Demo.Feature_CSharp.Infrastructure;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Demo.Infrastructure;
 
-namespace Demo.NewFeatures
+namespace Demo.Feature_CSharp
 {
     public class CSharp4 : ICSharp
     {

@@ -1,4 +1,4 @@
-﻿namespace Demo.Infrastructure
+﻿namespace Demo.Feature_CSharp.Infrastructure
 {
     public interface ICSharp
     {

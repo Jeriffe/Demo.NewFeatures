@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Demo.Feature_CSharp.Infrastructure;
+using System;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
-using Demo.Infrastructure;
 
-namespace Demo.NewFeatures
+namespace Demo.Feature_CSharp
 {
     public class CSharp5 : ICSharp
     {
@@ -28,7 +25,7 @@ namespace Demo.NewFeatures
             /*
              * message: Something happened
              * member name: CallerInformation
-             * source file path: D:\Jeriffe\Examples\C#\Demo.NewFeatures\Demo.NewFeatures\Demo.NewFeatures\CSharp5.cs
+             * source file path: D:\Jeriffe\Examples\C#\Demo.Feature_CSharp.Infrastructure\Demo.Feature_CSharp.Infrastructure\Demo.Feature_CSharp.Infrastructure\CSharp5.cs
              * source line number: 31
              */
             TraceMessage("Something happened");
