@@ -24,6 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{FD5CBFAB-0
 	ProjectSection(SolutionItems) = preProject
 		..\Docs\C# 9_ Improved pattern matching.pdf = ..\Docs\C# 9_ Improved pattern matching.pdf
 		..\Docs\CSharp9.pdf = ..\Docs\CSharp9.pdf
+		..\Docs\Differences Between .NET Framework, .NET Core, and .NET Standard.pdf = ..\Docs\Differences Between .NET Framework, .NET Core, and .NET Standard.pdf
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Feature_CSharp11", "Demo.Feature_CSharp11\Demo.Feature_CSharp11.csproj", "{7189EAE1-1A84-402B-A67F-96855323B49E}"
